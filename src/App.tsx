@@ -1,8 +1,13 @@
+import { MantineProvider } from '@mantine/core';
+import Layout from '@/components/Layout';
+
 function App() {
   return (
-    <div>
-      <h1>Hello world</h1>
-    </div>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Layout>
+        <h1>Hello world</h1>
+      </Layout>
+    </MantineProvider>
   );
 }
 
