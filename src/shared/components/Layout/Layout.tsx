@@ -5,7 +5,6 @@ import { useStyles } from './useStyles';
 type LayoutProps = {
   children: ReactNode;
 };
-
 export default function Layout({ children }: LayoutProps) {
   const { classes } = useStyles();
   return (
@@ -14,8 +13,8 @@ export default function Layout({ children }: LayoutProps) {
         <Header height={60}>
           <Container h='100%'>
             <Flex align='center' h='100%'>
-              <Text size='lg' weight='bold'>
-                Pokémon
+              <Text size='lg' weight='bold' color='red.7'>
+                Pokédex
               </Text>
             </Flex>
           </Container>
