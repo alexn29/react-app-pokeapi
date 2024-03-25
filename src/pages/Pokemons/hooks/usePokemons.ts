@@ -1,8 +1,12 @@
-import type { Pokemon } from '@/app-types/pokemon';
-import { getPokemonImageURL, getPokemonList } from '@/services/api';
-import { getPokemonID } from '@/shared/utils/pokemonUtils';
-import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import {
+  getPokemonDetails,
+  getPokemonImageURL,
+  getPokemonList,
+} from '@/services/api';
+import type { Pokemon } from '@/app-types/pokemon';
+import { getPokemonID } from '@/shared/utils/pokemonUtils';
 
 type UsePokemonListProps = {
   page: number;
@@ -53,4 +57,16 @@ export const usePokemonList = ({ page, limit, query }: UsePokemonListProps) => {
     totalPages,
     isLoading,
   };
+};
+
+export const usePokemonDetails = (id: number) => {
+  const { data, isLoading } = useQuery({
+    queryKey: [`pokemon-${id}`],
+    queryFn: () => getPokemonDetails(id),
+    keepPreviousData: true,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
+
+  return { data, isLoading };
 };
