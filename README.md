@@ -57,6 +57,8 @@ http://localhost:3000/
 
 ## Live demo
 
+[https://react-app-pokedex.web.app/](https://react-app-pokedex.web.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
