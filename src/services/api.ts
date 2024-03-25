@@ -1,4 +1,8 @@
-import type { GetPokemonList, PokemonListResult } from '@/app-types/pokemon';
+import type {
+  GetPokemonList,
+  PokemonDetails,
+  PokemonListResult,
+} from '@/app-types/pokemon';
 
 const API_URL = 'https://pokeapi.co/api/v2';
 const SPRITE_URL =
@@ -18,4 +22,9 @@ export async function getPokemonList({
 
 export function getPokemonImageURL(id: number) {
   return `${SPRITE_URL}/${id}.png`;
+}
+
+export async function getPokemonDetails(id: number): Promise<PokemonDetails> {
+  const response = await fetch(`${API_URL}/pokemon/${id}`);
+  return response.json();
 }
