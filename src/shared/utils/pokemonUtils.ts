@@ -13,16 +13,25 @@ export const typeColors: Record<string, MantineColor> = {
   water: 'blue.5',
   grass: 'green.5',
   electric: 'yellow.5',
-  flying: 'blue.1',
+  flying: 'blue.2',
   bug: 'green.9',
   poison: 'grape.9',
   ground: 'orange.9',
-  rock: 'gray.5',
-  fighting: 'orange.3',
+  rock: 'gray.6',
+  fighting: 'orange.7',
   fairy: 'pink.5',
   dragon: 'violet.9',
-  steel: 'grey.3',
-  ghost: '#fff',
-  ice: 'blue.1',
+  steel: 'gray.6',
+  ghost: 'gray.7',
+  ice: 'blue.4',
   dark: 'dark.5',
+  psychic: 'pink.7',
+};
+
+export const parseTypeColors = (color: MantineColor) => {
+  const [baseColor, tone] = color.split('.');
+  return {
+    baseColor,
+    tone: parseInt(tone),
+  };
 };
