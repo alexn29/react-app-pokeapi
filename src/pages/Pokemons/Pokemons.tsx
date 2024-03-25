@@ -58,6 +58,7 @@ export default function Pokemons() {
                   onChange={setPage}
                   total={totalPages}
                   align='center'
+                  color='red.7'
                 />
               </Flex>
 
