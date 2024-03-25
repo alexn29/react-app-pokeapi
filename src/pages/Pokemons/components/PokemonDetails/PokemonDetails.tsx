@@ -9,19 +9,35 @@ import {
   Divider,
   SimpleGrid,
   Badge,
+  createStyles,
 } from '@mantine/core';
 import { Carousel } from '@mantine/carousel';
 import { IconRuler2, IconStar, IconWeight } from '@tabler/icons-react';
 import { usePokemonDetails } from '@/pages/Pokemons/hooks/usePokemons';
-import { typeColors } from '@/shared/utils/pokemonUtils';
+import { parseTypeColors, typeColors } from '@/shared/utils/pokemonUtils';
 import EmptyPlaceholder from '@/shared/components/EmptyPlaceholder';
 import PokemonDetailsSkeleton from '@/shared/components/PokemonDetailsSkeleton';
+
+const useStyles = createStyles(() => ({
+  wrapper: {
+    '&:before': {
+      content: '" "',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100px',
+      zIndex: -1,
+    },
+  },
+}));
 
 type PokemonDetailsProps = {
   pokemonId: number;
 };
 export default function PokemonDetails({ pokemonId }: PokemonDetailsProps) {
   const { data, isLoading } = usePokemonDetails(pokemonId);
+  const { classes } = useStyles();
 
   if (isLoading) {
     return <PokemonDetailsSkeleton />;
@@ -47,9 +63,17 @@ export default function PokemonDetails({ pokemonId }: PokemonDetailsProps) {
 
   const pokemonType = types[0].type.name;
   const color: MantineColor = typeColors[pokemonType];
+  const { baseColor, tone } = parseTypeColors(color);
 
   return (
-    <Box>
+    <Box
+      className={classes.wrapper}
+      sx={(theme) => ({
+        '&:before': {
+          backgroundColor: theme.colors[baseColor][tone],
+        },
+      })}
+    >
       <Carousel height={125} maw={250} mx='auto' loop>
         <Carousel.Slide>
           <Flex justify='center' align='center' h='100%'>
@@ -67,7 +91,13 @@ export default function PokemonDetails({ pokemonId }: PokemonDetailsProps) {
         <Text transform='capitalize' align='center' size='xs' fw={600}>
           {name}
         </Text>
-        <Badge color={color}>{pokemonType}</Badge>
+        <Flex gap='xs'>
+          {types.map(({ type }) => (
+            <Badge key={type.name} color={color}>
+              {type.name}
+            </Badge>
+          ))}
+        </Flex>
       </Flex>
 
       <Divider size='xs' label='About' labelPosition='center' mb='lg' />
