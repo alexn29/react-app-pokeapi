@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@emotion/react": "11.11.4",
+    "@mantine/carousel": "6.0.21",
     "@mantine/core": "6.0.21",
     "@mantine/hooks": "6.0.21",
     "@tabler/icons-react": "^3.1.0",
@@ -15,6 +16,7 @@
     "@types/node": "^16.18.91",
     "@types/react": "^18.2.69",
     "@types/react-dom": "^18.2.22",
+    "embla-carousel-react": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
