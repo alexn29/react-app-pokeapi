@@ -10,10 +10,10 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <AppShell
       header={
-        <Header height={60}>
+        <Header height={60} bg='red.7'>
           <Container h='100%'>
             <Flex align='center' h='100%'>
-              <Text size='lg' weight='bold' color='red.7'>
+              <Text size='lg' weight='bold' color='white'>
                 Pokédex
               </Text>
             </Flex>
