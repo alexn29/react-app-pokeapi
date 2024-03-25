@@ -61,7 +61,12 @@ export default function Pokemons() {
                 />
               </Flex>
 
-              <Modal opened={opened} onClose={close} withCloseButton={false}>
+              <Modal
+                opened={opened}
+                onClose={close}
+                withCloseButton={false}
+                radius='lg'
+              >
                 <PokemonDetails pokemonId={selectedPokemon} />
               </Modal>
             </>
