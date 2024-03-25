@@ -3,8 +3,8 @@ import { Flex, Title, Text } from '@mantine/core';
 
 type EmptyPlaceholderProps = {
   icon?: ReactNode;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 };
 export default function EmptyPlaceholder({
   icon,
@@ -14,10 +14,12 @@ export default function EmptyPlaceholder({
   return (
     <Flex direction='column' align='center' gap='lg' py='lg' w='100%'>
       {icon}
-      <Title weight={900} color='dimmed'>
-        {title}
-      </Title>
-      <Text>{description}</Text>
+      {title && (
+        <Title weight={900} color='dimmed'>
+          {title}
+        </Title>
+      )}
+      {description && <Text>{description}</Text>}
     </Flex>
   );
 }
