@@ -1,6 +1,61 @@
-# Getting Started with Create React App
+# Pokédex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project implements a Pokédex using the PokéAPI.
+
+## Features
+
+- Lists Pokémon.
+- Search Pokémon by name.
+- Navigate through pagination.
+- View detailed information of Pokémon through a modal.
+
+## Tech stack
+
+- `@emotion/react`
+- `@mantine/carousel`
+- `@mantine/core`
+- `@mantine/hooks`
+- `@tabler/icons-react`
+- `@tanstack/react-query`
+- `embla-carousel-react`
+- `typescript`
+- `ESLint`
+- `Prettier`
+- `Craco`
+
+## Requirements
+
+```
+- NodeJS v18.19.0
+- Yarn
+```
+
+## Installation
+
+```
+# Clone this repository
+git clone https://github.com/alexn29/react-app-pokeapi.git
+
+# Navigate to the folder
+cd react-app-pokeapi
+
+# Use the NodeJS version from .nvmrc
+nvm use
+
+Note: if you are on windows and using gitbash, type the following:
+nvm use $(cat .nvmrc)
+
+# Once you select the correct nodejs version, now install the dependencies
+yarn install
+
+# Run in development mode
+yarn start
+
+# Finally, open your web browser and navigate to
+http://localhost:3000/
+```
+
+## Live demo
 
 ## Available Scripts
 
@@ -39,8 +94,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `yarn lint`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Analyzes source code to flag programming errors, bugs, stylistic errors, and suspicious constructs
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `yarn format`
+
+Utilizes code formatting tools to ensure consistency and style across the entire project. Running `yarn format` automatically applies defined formatting rules, enhancing readability and helping maintain clean and organized code.
